@@ -19,7 +19,10 @@ type PitcFlow struct{}
 
 // Returns a Container from an image from the Dagger core API
 // The Container gives you access to many other API objects like Directory and File
-func (m *PitcFlow) GetContainer(string image) *dagger.Container {
+func (m *PitcFlow) GetContainer(
+	// The name of a public container image in docker image ref format
+	string image,
+) *dagger.Container {
 	return dag.Container().From(image)
 }
 
