@@ -16,6 +16,13 @@ import (
 
 type PitcFlow struct{}
 
+
+// Returns a Container from an image from the Dagger core API
+// The Container gives you access to many other API objects like Directory and File
+func (m *PitcFlow) GetContainer(string image) *dagger.Container {
+	return dag.Container().From(image)
+}
+
 // Returns a file containing the results of the lint command
 func (m *PitcFlow) Lint(
 	// Container to run the lint command
