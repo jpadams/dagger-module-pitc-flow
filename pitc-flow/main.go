@@ -21,7 +21,7 @@ type PitcFlow struct{}
 // The Container gives you access to many other API objects like Directory and File
 func (m *PitcFlow) GetContainer(
 	// The name of a public container image in docker image ref format
-	string image,
+	image string,
 ) *dagger.Container {
 	return dag.Container().From(image)
 }
